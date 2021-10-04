@@ -1,0 +1,19 @@
+﻿<Application x:Class="Frontend.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:Frontend">
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="View/Styles/TextBoxStyle.xaml"/>
+                <ResourceDictionary Source="View/Styles/TextBlockFontStyle.xaml"/>
+                <ResourceDictionary Source="View/Styles/LableFontStyle.xaml"/>
+                <ResourceDictionary Source="View/Styles/ChatTabsStyle.xaml"/>
+                <ResourceDictionary Source="View/Styles/ChatItemStyle.xaml"/>
+                <ResourceDictionary Source="View/Styles/MessageBox.xaml"/>
+                <ResourceDictionary Source="View/Styles/ScrollThumbs.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
+</Application>

@@ -1,0 +1,64 @@
+﻿syntax = "proto3";
+
+package UserApi;
+
+// Information from the server about the work performed. DEBUG, INFO, FATAL and another messages
+message ServerInfo {
+  string message = 1;
+}
+
+// Personal data of the user
+message PersonalData {
+  string name = 1;
+  string surname = 2;
+  string patronymic = 3;
+  string yearsold = 4;
+}
+
+// User data in the system
+message User {
+  int64 id = 1;
+  string login = 2;
+  string password = 3;
+  enum AccessLvl {
+    LOW = 0;
+    AVERAGE = 1;
+    HIGH = 2;
+  };
+  AccessLvl access_lvl = 4;
+  PersonalData personal_data = 5;
+}
+
+message AuthorizationDataRequest
+{
+  string login = 1;
+  string password = 2;
+}
+
+message AuthorizationDataResponse
+{
+   User user = 1;
+   ServerInfo msg = 2;
+   bool isAuth = 3;
+}
+
+// Request to the server to register a new user
+message RegistrationDataRequest {
+  User user_reg_data = 1;
+}
+
+// A response from the server with information about whether it was possible to register the user
+message RegistrationDataResponse {
+  User user = 1;
+  ServerInfo msg = 2;
+  bool isRegister = 3;
+}
+
+service Authorization {
+  rpc LogIn (AuthorizationDataRequest) returns(AuthorizationDataResponse){}
+}
+
+// Function for working with user registration
+service Registration {
+  rpc RegistrationNewUser (RegistrationDataRequest) returns(RegistrationDataResponse){}
+}

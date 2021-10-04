@@ -1,0 +1,126 @@
+﻿<UserControl x:Class="Frontend.View.Controls.AuthorizationRegistration.RegistrationSecondStageControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Frontend.View.Controls.AuthorizationRegistration"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    
+    <Grid Background="#282828" Margin="0,4,0,-4">
+        <Grid Panel.ZIndex="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="Auto"></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="Auto"></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+
+            <TextBlock
+                Margin="0, 40"
+                Grid.Column="1" Grid.Row="0"
+                VerticalAlignment="Bottom"
+                HorizontalAlignment="Center"
+                Text="Registering a new account"
+                Foreground="Gray"
+                FontSize="18">
+            </TextBlock>
+
+            <Grid Grid.Column="1" Grid.Row="1">
+                <StackPanel Margin="0, 20, 0, 30">
+
+                    <TextBlock 
+                        Text="Login"
+                        Style="{StaticResource MainFontStyle}">
+                    </TextBlock>
+
+                    <TextBox 
+                        x:Name="LoginTextBox"
+                        Style="{StaticResource placeHolder}" 
+                        Text="{Binding Login}"
+                        Tag="Enter your login...">
+                    </TextBox>
+
+                    <TextBlock 
+                        Margin="0, 20, 0, 0"
+                        Text="Password"
+                        Style="{StaticResource MainFontStyle}">
+                    </TextBlock>
+
+                    <TextBox 
+                        x:Name="PasswordTextBox"
+                        Style="{StaticResource placeHolder}" 
+                        Text="{Binding Password}"
+                        Tag="Enter your password...">
+                    </TextBox>
+                    <!--TODO: проверка повторения пороля-->
+                    <TextBlock 
+                        Margin="0, 20, 0, 0"
+                        Text="Repeat password"
+                        Style="{StaticResource MainFontStyle}">
+                    </TextBlock>
+
+                    <TextBox 
+                        x:Name="RepeatPasswordTextBox"
+                        Style="{StaticResource placeHolder}" 
+                        Tag="Reapet your password...">
+                    </TextBox>
+
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Column="1" Grid.Row="2">
+                <StackPanel Margin="0, 10">
+                    <Button 
+                        Command="{Binding RegisterNewUser}"
+                        Content="Register now"
+                        Height="30"
+                        Width="300" 
+                        Background="#FF2579BF"
+                        Foreground="White" 
+                        FontSize="14">
+                    </Button>
+
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                            <ColumnDefinition Width="Auto"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+
+                        <TextBlock 
+                            Grid.Column="0"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Text="You already have an account?" 
+                            Style="{StaticResource MainFontStyle}">
+                        </TextBlock>
+
+                        <Button 
+                            Command="{Binding OpenAuthorization}"
+                            Grid.Column="1"
+                            VerticalAlignment="Top"
+                            HorizontalAlignment="Left"
+                            Content="Log in"
+                            Foreground="#FF9C9C9C" 
+                            BorderBrush="{x:Null}" 
+                            Background="{x:Null}"
+                            FontWeight="Bold">
+                        </Button>
+                    </Grid>
+                </StackPanel>
+            </Grid>
+        </Grid>
+
+        <Rectangle
+            RadiusX="25"
+            RadiusY="25"
+            Fill="#191919"
+            Height="400"
+            Width="370">
+        </Rectangle>
+    </Grid>
+</UserControl>
